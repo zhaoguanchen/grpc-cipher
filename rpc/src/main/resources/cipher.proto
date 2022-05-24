@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+//option java_multiple_files = true;
+option java_package = "com.gc.cipher";
+//option java_outer_classname = "Cipher";
+
+// The Cipher service definition.
+service Cipher {
+
+  rpc GetKeys (KeyRequest) returns (KeyReply) {}
+
+  rpc Encrypt (EncryptRequest) returns (EncryptReply) {}
+
+  rpc Decrypt (DecryptRequest) returns (DecryptReply) {}
+}
+
+message KeyRequest {
+
+}
+
+
+message KeyReply {
+  string publicKey = 1;
+  string privateKey = 2;
+}
+
+
+message EncryptRequest {
+  string content = 1;
+  string key = 2;
+}
+
+
+message EncryptReply {
+  string EncryptedStr = 1;
+}
+
+
+message DecryptRequest {
+  string content = 1;
+  string key = 2;
+}
+
+
+message DecryptReply {
+  string DecryptedStr = 1;
+}
